@@ -1,3 +1,17 @@
+const buttons = document.querySelectorAll("button");
+// const add = buttons[0];
+const show = buttons[1];
+const remove = buttons[2];
+
+const sections = document.querySelectorAll("section");
+// const controlsSection = sections[0];
+const booksSection = sections[1];
+
+const divs = document.querySelectorAll("div");
+const shelves = divs[0];
+
+const books = [];
+
 /**
  * The function Book() is a constructor function that creates a new object with the properties name,
  * author, length, and genre
