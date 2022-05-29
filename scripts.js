@@ -38,3 +38,19 @@ function Book(name, author, length, genre) {
 	books.push(this);
 }
 
+const bookshelves = [];
+/**
+ * It generates the header and the book cards
+ */
+function populateBooksSection() {
+	for (const _number of books) {
+		const shelf = document.createElement("article");
+		const desc = document.createElement("p");
+		shelves.append(shelf);
+		shelf.className = "shelf";
+		shelf.append(desc);
+		desc.className = "desc";
+		bookshelves.push(shelf);
+	}
+}
+
