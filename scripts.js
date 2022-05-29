@@ -54,3 +54,16 @@ function populateBooksSection() {
 	}
 }
 
+const intro = document.createElement("h2");
+/* When the show button is clicked, it will add the text
+"We currently have:" to the intro. It will then prepend the intro to the
+booksSection. It will then loop through the books array and add the 
+book description to the bookshelves array. */
+show.addEventListener("click", () => {
+	populateBooksSection();
+	intro.textContent = "We currently have:";
+	booksSection.prepend(intro);
+	for (const [index, book] of books.entries()) {
+		bookshelves[index].children[0].innerHTML = book.desc();
+	}
+});
