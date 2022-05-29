@@ -17,3 +17,16 @@ body {
 	align-items: center;
 }
 
+.books-section {
+	display: grid;
+	text-align: center;
+}
+
+.shelves {
+	justify-content: center;
+	align-items: center;
+	display: grid;
+	grid: 100px 100px	/ 15em 15em;
+	gap: 1em;
+}
+
