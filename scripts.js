@@ -55,6 +55,8 @@ const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
 		bookshelves.push(shelf);
 	}
 const tip = document.createElement("p");
+/* A boolean to avoid duplication. */
+let booksShown = false;
 }
 
 const intro = document.createElement("h2");
