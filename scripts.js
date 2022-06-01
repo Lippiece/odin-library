@@ -43,13 +43,14 @@ const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
 /**
  * It generates the header and the book cards
  */
-function populateBooksSection() {
-	for (const _number of books) {
-		const shelf = document.createElement("article");
-		const desc = document.createElement("p");
+	const shelf    = document.createElement("article"),
+		desc         = document.createElement("p"),
+		removeButton = document.createElement("button");
+
 		shelves.append(shelf);
 		shelf.className = "shelf";
-		shelf.append(desc);
+
+	shelf.append(desc, removeButton);
 		desc.className = "desc";
 		bookshelves.push(shelf);
 	}
