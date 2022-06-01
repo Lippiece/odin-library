@@ -149,5 +149,13 @@ function populateAddFormSection() {
 			tip.textContent = "Please fill out the fields.";
 			return;
 		}
+		/* Create a new book object and then add it to the bookshelves array. */
+		const _newBook = new Book(
+			nameInput.value,
+			authorInput.value,
+			lengthInput.value,
+			genreInput.value
+		);
+		
 	});
 }
