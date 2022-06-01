@@ -149,6 +149,15 @@ function populateAddFormSection() {
 			tip.textContent = "Please fill out the fields.";
 			return;
 		}
+
+		/* Check if the books have been shown. If they haven't, display a tip. */
+		if (!booksShown) {
+			tip.setAttribute("style", "opacity:1");
+			tip.textContent = 
+				"The new books will be shown when you click ";
+			tip.append(show);
+		}
+				
 		/* Create a new book object and then add it to the bookshelves array. */
 		const _newBook = new Book(
 			nameInput.value,
