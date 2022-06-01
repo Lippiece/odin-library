@@ -83,3 +83,6 @@ show.addEventListener("click", () => {
 		booksShown = true;
 	}
 });
+
+/* An array that will hold the elements of the add form. */
+const formAddSectionElements = [];
