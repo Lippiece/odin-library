@@ -38,7 +38,8 @@ function Book(name, author, length, genre) {
 	books.push(this);
 }
 
-const bookshelves = [];
+const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
+	bookshelves = [];
 /**
  * It generates the header and the book cards
  */
