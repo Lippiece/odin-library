@@ -41,8 +41,9 @@ function Book(name, author, length, genre) {
 const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
 	bookshelves = [];
 /**
- * It generates the header and the book cards
+	* Populate the books section with shelves.
  */
+function populateShelves() {
 	const shelf    = document.createElement("article"),
 		desc         = document.createElement("p"),
 		removeButton = document.createElement("button");
