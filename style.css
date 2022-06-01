@@ -42,6 +42,19 @@ button {
 	padding: 0 1em;
 }
 
+button:hover,
+button:focus,
+input:hover,
+input:focus {
+	transition: box-shadow 0.1s;
+	box-shadow: 0 0 0.5em wheat;
+}
+
+input:focus {
+	transition: width 0.1s;
+	width: 20em;
+}
+
 .controls-section {
 	display: grid;
 	gap: 0.5em;
