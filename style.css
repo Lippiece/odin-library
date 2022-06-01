@@ -30,3 +30,14 @@ body {
 	gap: 1em;
 }
 
+.add {
+	display: grid;
+	gap: 0.5em;
+	align-items: center;
+	justify-content: center;
+}
+
+.add > label {
+	justify-self: center;
+	width: 10em;
+}
