@@ -157,5 +157,11 @@ function populateAddFormSection() {
 			genreInput.value
 		);
 		
+		/* Clear the input fields after the submission. */
+		nameInput.value   = "";
+		authorInput.value = "";
+		lengthInput.value = "";
+		genreInput.value  = "";
+		
 	});
 }
