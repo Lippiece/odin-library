@@ -68,10 +68,11 @@ input:focus {
 }
 
 .shelves {
+	margin: 0 1em;
 	justify-content: center;
 	align-items: center;
 	display: grid;
-	grid: 100px 100px	/ 15em 15em;
+	grid: 1fr / 10em 10em 10em;
 	gap: 1em;
 }
 
