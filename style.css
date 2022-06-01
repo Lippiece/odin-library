@@ -12,8 +12,21 @@ body * {
 	font-family: inherit;
 }
 
+input {
+	margin-top: 0.1em;
+	appearance: none;
+	outline: none;
+	border: none;
+	border-radius: 1em;
+	padding: 0 0.5em;
+	height: 2em;
+	box-shadow: none;
+	justify-self: center;
 }
 
+input:valid {
+	box-shadow: none;
+}
 .controls-section {
 	display: grid;
 	gap: 0.5em;
