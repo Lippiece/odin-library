@@ -75,7 +75,11 @@ show.addEventListener("click", () => {
 	populateBooksSection();
 	intro.textContent = "We currently have:";
 	booksSection.prepend(intro);
+
 	for (const [index, book] of books.entries()) {
 		bookshelves[index].children[0].innerHTML = book.desc();
+		}
+
+		booksShown = true;
 	}
 });
