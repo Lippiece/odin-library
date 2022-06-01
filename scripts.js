@@ -58,8 +58,14 @@ function populateShelves() {
 const tip = document.createElement("p");
 /* A boolean to avoid duplication. */
 let booksShown = false;
+/* The show button. Loop through the books array and add the 
+book description to the bookshelves array. */
+show.addEventListener("click", () => {
+	if (!booksShown) {
+		tip.textContent = "";
+		for (const _number of books) {
+			populateShelves();
 }
-
 const intro = document.createElement("h2");
 /* When the show button is clicked, it will add the text
 "We currently have:" to the intro. It will then prepend the intro to the
