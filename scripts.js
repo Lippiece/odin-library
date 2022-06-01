@@ -139,5 +139,6 @@ function populateAddFormSection() {
 	// submitButton.type        = "reset";
 	addFormSection.push(submitButton);
 
+	submitButton.addEventListener("click", () => {		
 	});
 }
