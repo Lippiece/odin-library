@@ -163,5 +163,11 @@ function populateAddFormSection() {
 		lengthInput.value = "";
 		genreInput.value  = "";
 		
+		if (booksShown) {
+			tip.textContent = "";
+			populateShelves();
+			bookshelves[bookshelves.length - 1].children[0].innerHTML =
+				books[books.length - 1].desc();
+		}
 	});
 }
