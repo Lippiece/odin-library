@@ -180,3 +180,15 @@ function populateAddFormSection() {
 		}
 	});
 }
+
+// Avoid duplication.
+let addFormShown = false;
+add.addEventListener("click", () => {
+	if (!addFormShown) {
+		addFormShown = true;
+		populateAddFormSection();
+		for (const item of addFormSection) {
+			formSection.append(item);
+		}
+	}
+});
