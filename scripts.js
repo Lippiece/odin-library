@@ -82,6 +82,12 @@ function populateShelves() {
 	removeButton.append(removeIcon);
 	removeIcon.setAttribute("class", "iconify");
 	removeIcon.dataset.icon = "ic:round-playlist-remove";
+	removeButton.addEventListener("click", (event) => {
+		event.target.parentNode.remove();
+		/* Remove the book from the books array and the shelf from the shelves array */
+		books.splice(bookshelves.indexOf(event.target.parentNode), 1);
+		bookshelves.splice(bookshelves.indexOf(event.target.parentNode), 1);
+	});
 	bookshelves.push(shelf);
 }
 const tip = document.createElement("p");
