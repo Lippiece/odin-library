@@ -228,4 +228,5 @@ add.addEventListener("click", () => {
 		}
 	}
 	add.remove();
+	addFormSection[0].children[0].focus();
 });
