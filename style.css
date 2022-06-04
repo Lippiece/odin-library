@@ -9,11 +9,19 @@ body {
 	height: 100vh;
 	display: grid;
 	grid: 5em 1fr 1fr / 1fr;
-	gap: 1em;
+	overflow-x: hidden;
 }
 
 body * {
 	font-family: inherit;
+}
+
+.iconify {
+	font-size: 1.5em;
+}
+
+label {
+	text-align: center;
 }
 
 input {
@@ -26,6 +34,7 @@ input {
 	height: 2em;
 	box-shadow: none;
 	justify-self: center;
+	width: 8em;
 }
 
 input:valid {
@@ -37,54 +46,124 @@ input:invalid {
 }
 
 button {
-	appearance: none;
-	outline: none;
-	border: none;
+	appearance   : none;
+	outline      : none;
+	border       : none;
 	border-radius: 0.5em;
-	height: 1.5em;
-	justify-self: center;
-	padding: 0 1em;
+	height       : 1.5em;
+	padding      : 0 1em;
+	display      : flex;
+	align-items  : center;
+	margin       : auto;
 }
 
 button:hover,
 button:focus,
-input:hover,
-input:focus {
+input:hover {
 	transition: box-shadow 0.1s;
 	box-shadow: 0 0 0.5em wheat;
 }
 
 input:focus {
+	transition: box-shadow 0.1s;
 	transition: width 0.1s;
-	width: 20em;
+	box-shadow: 0 0 0.5em wheat;
+	width: 15em;
 }
 
 .controls-section {
-	display: grid;
-	gap: 0.5em;
+	display        : grid;
+	gap            : 0.5em;
 	justify-content: center;
-	align-items: center;
+	align-items    : center;
+	background     :
+		linear-gradient(
+			to bottom,
+			#222,
+			#000
+		);
+	padding-bottom: 1em;
+}
+
+.books-section::before {
+	content            : " ";
+	position           : absolute;
+	left               : 0;
+	top                : 0;
+	height             : 100%;
+	width              : 100%;
+	background-position: 50% 50%;
+	background-size    : cover;
+	background-image   : url( "https://images.unsplash.com/photo-1470549638415-0a0755be0619" );
+	opacity            : var( --bg-opacity );
 }
 
 .books-section {
+	--bg-opacity: 0.6;
+
+	background:
+		linear-gradient(
+			to bottom,
+			#000,
+			#222,
+			#222,
+			#222,
+			#222,
+			#000
+		);
 	display: grid;
 	text-align: center;
+	position: relative;
+	height: 100%;
 }
 
 .shelves {
-	margin: 0 1em;
+	margin         : 0 1em;
 	justify-content: center;
-	align-items: center;
-	display: grid;
-	grid: 1fr / 10em 10em 10em;
-	gap: 1em;
+	align-items    : center;
+	display        : grid;
+	grid           : 1fr 1fr / repeat( auto-fit, minmax( 5em, 15em ) );
+	gap            : 1em;
+}
+
+.shelf {
+	position        : relative;
+	height          : 8em;
+	background-color: #222;
+	padding         : 0.5em;
+	border          : 1px solid #111;
+	border-radius   : 1em;
+}
+
+.shelf:hover {
+	background-color: #000;
+	transition      : background-color 0.2s;
+}
+
+.shelf .iconify {
+	font-size: 24px;
+}
+
+.shelf > button {
+	margin-top: 0.5em;
 }
 
 .add {
-	display: grid;
-	gap: 0.5em;
-	align-items: center;
+	background:
+		linear-gradient(
+			to top,
+			#222,
+			#222,
+			#222,
+			#222,
+			#222,
+			#000
+		);
+	display        : grid;
+	gap            : 0.5em;
+	align-items    : center;
 	justify-content: center;
+	padding-top    : 1em;
 }
 
 .add > label {
