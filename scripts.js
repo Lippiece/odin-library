@@ -47,15 +47,19 @@ const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
 	* Populate the books section with shelves.
 	*/
 function populateShelves() {
-	const shelf    = document.createElement("article"),
-		desc         = document.createElement("p"),
-		removeButton = document.createElement("button");
+	const shelf = document.createElement("article"),
+		desc = document.createElement("p"),
+		removeButton = document.createElement("button"),
+		removeIcon = document.createElement("span");
 
 	shelves.append(shelf);
 	shelf.className = "shelf";
 
 	shelf.append(desc, removeButton);
-	desc.className = "desc";
+	// Remove button
+	removeButton.append(removeIcon);
+	removeIcon.setAttribute("class", "iconify");
+	removeIcon.dataset.icon = "ic:round-playlist-remove";
 	bookshelves.push(shelf);
 }
 const tip = document.createElement("p");
