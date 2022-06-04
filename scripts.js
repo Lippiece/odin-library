@@ -80,9 +80,8 @@ show.addEventListener("click", () => {
 		}
 
 		booksShown = true;
-	}
+	show.remove();
 });
-
 /* An array that will hold the elements of the add form. */
 const addFormSection = [];
 /**
@@ -191,4 +190,5 @@ add.addEventListener("click", () => {
 			formSection.append(item);
 		}
 	}
+	add.remove();
 });
