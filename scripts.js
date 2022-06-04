@@ -1,17 +1,17 @@
 /* buttons */
 const buttons = document.querySelectorAll("button"),
-	    add     = buttons[0],
-	    show    = buttons[1],
-	/* 	
+	add     = buttons[0],
+	show    = buttons[1],
+	/*
 	sections */
 	sections     = document.querySelectorAll("section"),
 	booksSection = sections[1],
 	formSection  = sections[2],
-	/* 
+	/*
 	divs */
 	divs    = document.querySelectorAll("div"),
 	shelves = divs[0],
-	/* 
+	/*
 	main books array */
 	books = [];
 
@@ -29,8 +29,7 @@ function Book(name, author, length, genre) {
 	this.author = author;
 	this.length = length;
 	this.genre  = genre;
-
-	this.desc = function () {
+	this.desc   = () => {
 		return `Name: "${this.name}"<br>
 		Author: ${this.author}<br>
 		Length: ${this.length}<br>
@@ -62,11 +61,13 @@ function Book(name, author, length, genre) {
 	/* Pushing the new object into the array of books. */
 	books.push(this);
 }
-
+// Some examples of books
 const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
+	_sample2 = new Book("Dune", "Frank Herbert", 412, "Science fiction"),
 	bookshelves = [];
+
 /**
-	* Populate the books section with shelves.
+	* Populate the books section with shelves and their contents.
 	*/
 function populateShelves() {
 	const shelf = document.createElement("article"),
@@ -76,7 +77,7 @@ function populateShelves() {
 
 	shelves.append(shelf);
 	shelf.className = "shelf";
-
+	// Text part
 	shelf.append(desc, removeButton);
 	// Remove button
 	removeButton.append(removeIcon);
@@ -91,36 +92,33 @@ function populateShelves() {
 	bookshelves.push(shelf);
 }
 const tip = document.createElement("p");
-/* A boolean to avoid duplication. */
 let booksShown = false;
 
 tip.textContent = "Tip: use TABS to navigate between input fields.";
-/* The show button. Loop through the books array and add the 
+/* The show button. Loop through the books array and add the
 book description to the bookshelves array. */
 show.addEventListener("click", () => {
 	const intro = document.createElement("h2");
 
 	booksSection.style.setProperty("--bg-opacity","0.2");
-		tip.textContent = "";
-		for (const _number of books) {
-			populateShelves();
-		}
-		const intro = document.createElement("h2");
-		intro.textContent = "We currently have:";
-		booksSection.prepend(intro);
-
-		for (const [index, book] of books.entries()) {
-			bookshelves[index].children[0].innerHTML = book.desc();
+	tip.textContent = "";
+	intro.textContent = "We currently have:";
+	booksSection.prepend(intro);
+	for (const [index, book] of books.entries()) {
+		populateShelves();
+		bookshelves[index].children[0].innerHTML = book.desc();
 		bookshelves[index].append(book.read());
-		}
-		booksShown = true;
+
+	}
+	booksShown = true;
 	show.remove();
 });
 /* An array that will hold the elements of the add form. */
 const addFormSection = [];
+
 /**
- * It creates a form section for adding books to the bookshelves.
- */
+	* It creates a form section for adding books to the bookshelves.
+	*/
 function populateAddFormSection() {
 	tip.setAttribute("style", "opacity:0.5");
 	formSection.append(tip);
@@ -129,50 +127,48 @@ function populateAddFormSection() {
 		nameInput = document.createElement("input");
 
 	nameLabel.textContent = "Book title:";
-	const nameInput             = document.createElement("input");
 	nameInput.name        = "name";
 	nameInput.placeholder = "Sherlock Holmes";
 	nameInput.required    = true;
 	nameLabel.append(nameInput);
 	addFormSection.push(nameLabel);
-
 	// Author
-	const authorLabel             = document.createElement("label");
+	const authorLabel = document.createElement("label"),
+		authorInput = document.createElement("input");
+
 	authorLabel.textContent = "Author:";
-	const authorInput             = document.createElement("input");
 	authorInput.name        = "author";
 	authorInput.placeholder = "Dostoevsky";
 	authorInput.required    = true;
 	authorLabel.append(authorInput);
 	addFormSection.push(authorLabel);
-
 	// Length
-	const lengthLabel             = document.createElement("label");
+	const lengthLabel = document.createElement("label"),
+		lengthInput = document.createElement("input");
+
 	lengthLabel.textContent = "Pages:";
-	const lengthInput             = document.createElement("input");
 	lengthInput.name        = "length";
 	lengthInput.placeholder = "100";
 	lengthInput.required    = true;
 	lengthLabel.append(lengthInput);
 	addFormSection.push(lengthLabel);
-
 	// Genre
-	const genreLabel             = document.createElement("label");
+	const genreLabel = document.createElement("label"),
+		genreInput = document.createElement("input");
+
 	genreLabel.textContent = "Genre:";
-	const genreInput             = document.createElement("input");
 	genreInput.name        = "genre";
 	genreInput.placeholder = "Literary fiction";
 	genreInput.required    = true;
 	genreLabel.append(genreInput);
 	addFormSection.push(genreLabel);
-
 	// Submit
-	const submitButton             = document.createElement("button");
+	const submitButton = document.createElement("button");
+
 	submitButton.textContent = "Add";
 	// submitButton.type        = "reset";
 	addFormSection.push(submitButton);
-
-	submitButton.addEventListener("click", () => {		
+	submitButton.addEventListener("click", () => {
 		nameInput.focus();
 		/* Display tip if the input fields are empty. */
 		if (nameInput.value === "" ||
@@ -183,15 +179,13 @@ function populateAddFormSection() {
 
 			return;
 		}
-
-		/* Check if the books have been shown. If they haven't, display a tip. */
+		/* Check if the books shown. If they haven't, display a tip. */
 		if (!booksShown) {
 			tip.setAttribute("style", "opacity:1");
-			tip.textContent = 
+			tip.textContent =
 				"The new books will be shown when you click ";
 			tip.append(show);
 		}
-				
 		/* Create a new book object and then add it to the bookshelves array. */
 		const _newBook = new Book(
 			nameInput.value,
@@ -199,26 +193,24 @@ function populateAddFormSection() {
 			lengthInput.value,
 			genreInput.value
 		);
-		
+
 		/* Clear the input fields after the submission. */
 		nameInput.value   = "";
 		authorInput.value = "";
 		lengthInput.value = "";
 		genreInput.value  = "";
-		
 		if (booksShown) {
 			tip.textContent = "";
 			populateShelves();
 			bookshelves[bookshelves.length - 1].children[0].innerHTML =
 				books[books.length - 1].desc();
-			bookshelves[bookshelves.length - 1].append(books[books.length-1].read());
-
+			bookshelves[bookshelves.length - 1].append(books[books.length - 1].read());
 		}
 	});
 }
-
-// Avoid duplication.
+// Don't show the new books yet.
 let addFormShown = false;
+
 add.addEventListener("click", () => {
 	if (!addFormShown) {
 		addFormShown = true;
