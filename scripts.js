@@ -165,13 +165,14 @@ function populateAddFormSection() {
 	addFormSection.push(submitButton);
 
 	submitButton.addEventListener("click", () => {		
+		nameInput.focus();
 		/* Display tip if the input fields are empty. */
-		if (tip.textContent !== "Please fill out the fields." &&
-			nameInput.value === "" ||
-			authorInput.value === 0 ||
-			lengthInput.value === 0 ||
-			genreInput.value === 0) {
+		if (nameInput.value === "" ||
+			authorInput.value === "" ||
+			lengthInput.value === "" ||
+			genreInput.value === "") {
 			tip.textContent = "Please fill out the fields.";
+
 			return;
 		}
 
