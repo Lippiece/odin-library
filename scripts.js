@@ -92,7 +92,9 @@ tip.textContent = "Tip: use TABS to navigate between input fields.";
 /* The show button. Loop through the books array and add the 
 book description to the bookshelves array. */
 show.addEventListener("click", () => {
-	if (!booksShown) {
+	const intro = document.createElement("h2");
+
+	booksSection.style.setProperty("--bg-opacity","0.2");
 		tip.textContent = "";
 		for (const _number of books) {
 			populateShelves();
