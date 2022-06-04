@@ -36,7 +36,29 @@ function Book(name, author, length, genre) {
 		Length: ${this.length}<br>
 		Genre : ${this.genre}<br>`;
 	};
+	this.read = () => {
+		const readButton = document.createElement("button"),
+			readIcon = document.createElement("span");
+		let readStatus = false;
 
+		readButton.append(readIcon);
+		readIcon.setAttribute("class", "iconify");
+		readIcon.dataset.icon = "gg:read";
+		readButton.addEventListener("click", () => {
+			if (readStatus) {
+				readIcon.dataset.icon = "gg:read";
+				readButton.style.backgroundColor = "green";
+				readStatus = false;
+
+				return;
+			}
+			readIcon.dataset.icon = "gg:read-solid";
+			readButton.style.backgroundColor = "red";
+			readStatus = true;
+		});
+
+		return readButton;
+	};
 	/* Pushing the new object into the array of books. */
 	books.push(this);
 }
@@ -81,8 +103,8 @@ show.addEventListener("click", () => {
 
 		for (const [index, book] of books.entries()) {
 			bookshelves[index].children[0].innerHTML = book.desc();
+		bookshelves[index].append(book.read());
 		}
-
 		booksShown = true;
 	show.remove();
 });
@@ -180,6 +202,8 @@ function populateAddFormSection() {
 			populateShelves();
 			bookshelves[bookshelves.length - 1].children[0].innerHTML =
 				books[books.length - 1].desc();
+			bookshelves[bookshelves.length - 1].append(books[books.length-1].read());
+
 		}
 	});
 }
