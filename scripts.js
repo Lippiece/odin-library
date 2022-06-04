@@ -61,6 +61,8 @@ function populateShelves() {
 const tip = document.createElement("p");
 /* A boolean to avoid duplication. */
 let booksShown = false;
+
+tip.textContent = "Tip: use TABS to navigate between input fields.";
 /* The show button. Loop through the books array and add the 
 book description to the bookshelves array. */
 show.addEventListener("click", () => {
@@ -89,9 +91,10 @@ const addFormSection = [];
 function populateAddFormSection() {
 	tip.setAttribute("style", "opacity:0.5");
 	formSection.append(tip);
-	
 	// Title
-	const nameLabel             = document.createElement("label");
+	const nameLabel = document.createElement("label"),
+		nameInput = document.createElement("input");
+
 	nameLabel.textContent = "Book title:";
 	const nameInput             = document.createElement("input");
 	nameInput.name        = "name";
