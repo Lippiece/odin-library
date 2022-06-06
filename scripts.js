@@ -32,10 +32,10 @@ function Book(name, author, length, genre) {
 	this.length = length;
 	this.genre  = genre;
 	this.desc   = () => {
-		return `Name: "${this.name}"<br>
-		Author: ${this.author}<br>
-		Length: ${this.length}<br>
-		Genre : ${this.genre}<br>`;
+		return `Название: "${this.name}"<br>
+		Автор: ${this.author}<br>
+		Размер: ${this.length}<br>
+		Жанр: ${this.genre}<br>`;
 	};
 	this.read = () => {
 		const readButton = document.createElement("button"),
@@ -64,8 +64,8 @@ function Book(name, author, length, genre) {
 	books.push(this);
 }
 // Some examples of books
-const _sample1 = new Book("Ulysses", "James Joyce", 661, "Modernist novel"),
-	_sample2 = new Book("Dune", "Frank Herbert", 412, "Science fiction"),
+const _sample1 = new Book("Улисс", "Джеймс Джойс", 661, "Модернистский роман"),
+	_sample2 = new Book("Дюна", "Фрэнк Герберт", 412, "Научная фантастика"),
 	bookshelves = [];
 
 /**
@@ -96,7 +96,7 @@ function populateShelves() {
 const tip = document.createElement("p");
 let booksShown = false;
 
-tip.textContent = "Tip: use TABS to navigate between input fields.";
+tip.textContent = "Совет: используйте TAB для перемещения между полями ввода.";
 /* The show button. Loop through the books array and add the
 book description to the bookshelves array. */
 show.addEventListener("click", () => {
@@ -104,7 +104,7 @@ show.addEventListener("click", () => {
 
 	booksSection.style.setProperty("--bg-opacity","0.2");
 	tip.textContent = "";
-	intro.textContent = "We currently have:";
+	intro.textContent = "В настоящее время у нас есть:";
 	booksSection.prepend(intro);
 	for (const [index, book] of books.entries()) {
 		populateShelves();
@@ -128,9 +128,9 @@ function populateAddFormSection() {
 	const nameLabel = document.createElement("label"),
 		nameInput = document.createElement("input");
 
-	nameLabel.textContent = "Book title:";
+	nameLabel.textContent = "Название книги:";
 	nameInput.name        = "name";
-	nameInput.placeholder = "Sherlock Holmes";
+	nameInput.placeholder = "Шерлок Холмс";
 	nameInput.required    = true;
 	nameLabel.append(nameInput);
 	addFormSection.push(nameLabel);
@@ -138,9 +138,9 @@ function populateAddFormSection() {
 	const authorLabel = document.createElement("label"),
 		authorInput = document.createElement("input");
 
-	authorLabel.textContent = "Author:";
+	authorLabel.textContent = "Автор:";
 	authorInput.name        = "author";
-	authorInput.placeholder = "Dostoevsky";
+	authorInput.placeholder = "Достоевский";
 	authorInput.required    = true;
 	authorLabel.append(authorInput);
 	addFormSection.push(authorLabel);
@@ -148,7 +148,7 @@ function populateAddFormSection() {
 	const lengthLabel = document.createElement("label"),
 		lengthInput = document.createElement("input");
 
-	lengthLabel.textContent = "Pages:";
+	lengthLabel.textContent = "Страницы:";
 	lengthInput.name        = "length";
 	lengthInput.placeholder = "100";
 	lengthInput.required    = true;
@@ -158,16 +158,16 @@ function populateAddFormSection() {
 	const genreLabel = document.createElement("label"),
 		genreInput = document.createElement("input");
 
-	genreLabel.textContent = "Genre:";
+	genreLabel.textContent = "Жанр:";
 	genreInput.name        = "genre";
-	genreInput.placeholder = "Literary fiction";
+	genreInput.placeholder = "Литературная фантастика";
 	genreInput.required    = true;
 	genreLabel.append(genreInput);
 	addFormSection.push(genreLabel);
 	// Submit
 	const submitButton = document.createElement("button");
 
-	submitButton.textContent = "Add";
+	submitButton.textContent = "Добавить";
 	// submitButton.type        = "reset";
 	addFormSection.push(submitButton);
 	submitButton.addEventListener("click", () => {
@@ -177,7 +177,7 @@ function populateAddFormSection() {
 			authorInput.value === "" ||
 			lengthInput.value === "" ||
 			genreInput.value === "") {
-			tip.textContent = "Please fill out the fields.";
+			tip.textContent = "Пожалуйста, заполните поля.";
 
 			return;
 		}
@@ -185,7 +185,7 @@ function populateAddFormSection() {
 		if (!booksShown) {
 			tip.setAttribute("style", "opacity:1");
 			tip.textContent =
-				"The new books will be shown when you click ";
+				"Новые книги будут показаны, когда вы нажмете ";
 			tip.append(show);
 		}
 		/* Create a new book object and then add it to the bookshelves array. */
