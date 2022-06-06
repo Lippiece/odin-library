@@ -1,3 +1,5 @@
+// Анисько Алексей Викторович, колледж МУИВ, КВБсп 110р/1-20
+
 /* buttons */
 const buttons = document.querySelectorAll("button"),
 	add     = buttons[0],
